@@ -1,21 +1,84 @@
-// src/components/Normas/Normas.jsx
+import React from "react";
+
 const Normas = () => {
+  const normas = [
+    {
+      numero: "01",
+      texto: "Antes de retirarse de la ventanilla, sírvase verificar su ticket de entrada (horario de función, película, sala y monto que pagó por él). La empresa no efectuará cambios ni devoluciones posteriores. Prohibido el ingreso con animales domésticos."
+    },
+    {
+      numero: "02",
+      texto: "Todo niño a partir de tres (03) años paga."
+    },
+    {
+      numero: "03",
+      texto: "La empresa se reserva el derecho de cambiar los horarios de las películas sin previo aviso."
+    },
+    {
+      numero: "04",
+      texto: "La empresa no se responsabiliza por la pérdida de sus pertenencias."
+    },
+    {
+      numero: "05",
+      texto: "Multicines Iquitos no tiene ninguna tarjeta de afiliación para promociones."
+    },
+    {
+      numero: "06",
+      texto: "Todo billete falso será marcado."
+    },
+    {
+      numero: "07",
+      texto: "La empresa Multicines Iquitos cuenta con libro de reclamaciones."
+    }
+  ];
+
   return (
-    <section id="normas" className="py-16 px-6 sm:px-12 bg-gray-800 text-white-400 max-w-4xl mx-auto rounded-lg shadow-lg mt-12">
-      <h2 className="text-4xl  mb-8 text-center border-b-2 border-yellow-400 pb-3">
-        📜 Normas
-      </h2>
-      <ul className="list-disc list-inside space-y-6 text-lg leading-relaxed">
-        <li>
-          Antes de retirarse de la ventanilla, sírvase verificar su ticket de entrada (horario de función, película, sala y monto que pagó por él). La empresa no efectuará cambios ni devoluciones posteriores. Prohibido el ingreso con animales domésticos.
-        </li>
-        <li>Todo niño a partir de tres (03) años paga.</li>
-        <li>La empresa se reserva el derecho de cambiar los horarios de las películas sin previo aviso.</li>
-        <li>La empresa no se responsabiliza por la pérdida de sus pertenencias.</li>
-        <li>Multicines Iquitos no tiene ninguna tarjeta de afiliación para promociones.</li>
-        <li>Todo billete falso será marcado.</li>
-        <li>La empresa Multicines Iquitos cuenta con libro de reclamaciones.</li>
-      </ul>
+    <section id="normas" className="py-16 px-6 sm:px-12 relative overflow-hidden">
+      {/* Fondo decorativo */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-yellow-900/20 pointer-events-none"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+            Normas y Políticas
+          </h2>
+          <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+          <p className="text-gray-400 mt-4">Para garantizar una mejor experiencia</p>
+        </div>
+        
+        {/* Grid de normas */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {normas.map((norma) => (
+            <div 
+              key={norma.numero}
+              className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-purple-600/50 transition-all duration-300 group"
+            >
+              {/* Número decorativo */}
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl flex items-center justify-center shadow-lg shadow-purple-900/50 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-xl">{norma.numero}</span>
+              </div>
+              
+              {/* Contenido */}
+              <div className="ml-8 mt-2">
+                <p className="text-gray-300 leading-relaxed">
+                  {norma.texto}
+                </p>
+              </div>
+
+              {/* Línea decorativa inferior */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-purple-600 to-yellow-400 group-hover:w-full transition-all duration-500 rounded-b-xl"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer info */}
+        <div className="mt-12 p-6 bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 border-l-4 border-yellow-400 rounded-r-xl">
+          <p className="text-yellow-400 font-semibold">
+            El incumplimiento de estas normas puede resultar en la expulsión del establecimiento sin derecho a reembolso.
+          </p>
+        </div>
+      </div>
     </section>
   );
 };
